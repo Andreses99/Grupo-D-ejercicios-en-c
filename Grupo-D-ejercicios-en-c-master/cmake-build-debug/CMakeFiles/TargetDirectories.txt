@@ -1,0 +1,3 @@
+C:/CC/Grupo-D-ejercicios-en-c-master/cmake-build-debug/CMakeFiles/GRUPO_D_C.dir
+C:/CC/Grupo-D-ejercicios-en-c-master/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/CC/Grupo-D-ejercicios-en-c-master/cmake-build-debug/CMakeFiles/rebuild_cache.dir
