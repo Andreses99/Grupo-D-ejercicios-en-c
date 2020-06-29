@@ -24,12 +24,13 @@ void numPrimos(int num){
 
 }
 
-void numEgolatra(int num) {
-    int sum=0;
-    int tamanho = sizeof(num)-1;
+void numEgolatra(double num) {
+
+    double sum=0;
+    double tamanho = sizeof(num)-1;
     char numString [sizeof(num)];
     sprintf(numString, "%d", num);
-    printf("tamaño es %d",num);
+
 
     if (num>0 & num<10){
         printf("\n el numero %d es Egolatra", num);
@@ -68,8 +69,6 @@ int prueba() {
         } else if (prue[i] == 'X') {
             cont = 0;
             sumar[i] = cont;
-        } else{
-            printf("ERROR DE SINTAXIS");
         }
     }
     for (int j = 0; j <=tamanho-2; ++j) {
@@ -83,16 +82,86 @@ int prueba() {
 }
 
 int main() {
-    printf("\nla suma dio! %d \n",prueba());
-    numEgolatra(0);
-    int numPrim;
-    bool a = true, b = false;
-    printf("Digite un numero\n");
-    scanf("%d", &numPrim);
-    if (numPrim > 0) {
-        numPrimos(numPrim);
-    } else {
-        printf("Error tiene que elegir un numero mayor a 1");
+    int opt=0;
+    bool continuar=true;
+
+    while (continuar){
+
+        printf("\n\n\t-*-*-*-*-*-*-* BIENVENIDOS -*-*-*-*-*-*-*-*-*\n\n");
+
+        printf("1) Encontrar los numeros primos descendentemente. \n");
+        printf("2) Verificar si el numero es egolatra o no.\n");
+        printf("3) ...........................\n");
+        printf("4)...................\n");
+        printf("5).............\n");
+        printf("6)....................\n");
+        printf("7) Ver el resultado de la prueba ya registrada. \n");
+        printf("8) Salir del programa \n");
+        printf("Que desea hacer? \n");
+        scanf("%d",&opt);
+
+        switch (opt){
+
+            case 1:
+                int numPrim;
+                printf("\tEjercicio 1\n");
+                printf("Digite un numero\n");
+                scanf("%d", &numPrim);
+                if (numPrim > 0) {
+                    numPrimos(numPrim);
+                } else {
+                    printf("Error tiene que elegir un numero mayor a 1\n");
+                }
+                break;
+
+            case 2:
+                double num;
+                printf("\tEjercicio 2 \n");
+                printf("Digite un numero para saber si es egolatra o no \n");
+                scanf("%d",&num);
+                numEgolatra(num);
+
+                break;
+
+            case 3:
+                printf("\tEjercicio 3 \n");
+
+                break;
+
+            case 4:
+                printf("\tEjercicio 4 \n");
+
+                break;
+
+            case 5:
+                printf("\tEjercicio 5 \n");
+
+                break;
+
+            case 6:
+                printf("\tEjercicio 6\n ");
+
+                break;
+
+            case 7:
+
+                printf("\tEjercicio 7\n ");
+                printf("\nla suma dio! %d \n",prueba());
+
+
+                break;
+
+            case 8:
+                printf("\tPrograma terminado que tenga buen dia \n");
+                continuar=false;
+
+
+                break;
+            default: puts("Error");
+                continuar=false;
+
+        }
+
     }
 
     return 0;
