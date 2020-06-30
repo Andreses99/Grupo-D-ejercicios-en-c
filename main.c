@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdio.h>
 #include <math.h>
 #include <stdbool.h>
 #include<string.h>
@@ -134,8 +135,8 @@ int main() {
         printf("2) Verificar si el numero es egolatra o no.\n");
         printf("3) Numero Magico\n");
         printf("4) IMC \n");
-        printf("5).............\n");
-        printf("6)....................\n");
+        printf("5)Calcular la suma de cada uno de los digitos que no correspondan a un determinado digito\n");
+        printf("6)Dado un patron de bits p y un numero n, cuantas veces esta p en F(n)?\n");
         printf("7) Ver el resultado de la prueba ya registrada. \n");
         printf("8) Salir del programa \n");
         printf("Que desea hacer? \n");
@@ -152,8 +153,8 @@ int main() {
                     numPrimos(numPrim);
                 } else {
                     printf("Error tiene que elegir un numero mayor a 1\n");
-                    continuar=false;
                 }
+                main();
                 break;
 
             case 2:
@@ -161,14 +162,12 @@ int main() {
                 printf("Digite un numero para saber si es egolatra o no \n");
                 double num;
                 scanf("%d", &num);
-                if(num>1){
                 numEgolatra(num);
-                }else{
-                     printf("Error tiene que elegir un numero mayor a 1\n");
-                    continuar=false;
+                main();
                 break;
 
             case 3:
+                printf("\tEjercicio 3 \n");
 
                 printf("Bienvenido al Programa de Numeros Magicos \n");
                 printf("Digite un numero: \n");
@@ -176,91 +175,161 @@ int main() {
                 scanf("%s", number);
                 int nb;
                 nb = atoi(number);
-                if(nb>0 && nb <100000){
-                    if (nb == numberMagic(number)) {
-                        printf("El numero %i es un numero magico\n",nb);
-                    }
-                    else {
-                        printf("El numero %i no es un numero magico\n",nb);
-                    }
-                } else{
-                    printf("Caracter introducido es incorrecto");
+                if (nb == numberMagic(number)) {
+                    printf("El numero %i es un numero magico\n",nb);
                 }
+                else {
+                    printf("El numero %i no es un numero magico\n",nb);
+                }
+                main();
                 break;
 
             case 4:
-               printf("¿Es usted Hombre o Mujer?\n");
+                printf("\tEjercicio 4 \n");
+                printf("¿Es usted Hombre o Mujer?\n");
                 printf("Escribe h para hombre y m para mujer\n");
                 char genero;
                 scanf("%s", &genero);
-                if( genero =='h' || genero =='m') {
-                    printf("Digite su peso?\n");
-                    float peso, altura;
-                    if (scanf("%f", &peso) != 1) {
-                        printf("solo se puede ingresar numeros ejemplo 53");
-                        continuar = false;
+                printf("Digite su peso?\n");
+                float peso,altura;
+                if (scanf("%f", &peso) != 1) {
+                    printf("solo se puede ingresar numeros");
+                } else {
+                    printf("Digite su altura \n");
+                    if (scanf("%f", &altura) != 1) {
+                        printf("solo se puede ingresar numeros");
                     } else {
-                        printf("Digite su altura \n");
-                        if (scanf("%f", &altura) != 1) {
-                            printf("solo se puede ingresar numeros ejemplo 1.60");
-                            continuar = false;
-                        } else {
-                            switch (genero) {
-                                case 'h':
-                                    if (CalImc(peso, altura) <= 17) {
-                                        printf("Desnutricion");
-                                    } else if (CalImc(peso, altura) > 17 && CalImc(peso, altura) < 20) {
-                                        printf("Bajo peso");
-                                    } else if (CalImc(peso, altura) >= 20 && CalImc(peso, altura) < 25) {
-                                        printf("Normal");
-                                    } else if (CalImc(peso, altura) >= 25 && CalImc(peso, altura) < 30) {
-                                        printf("Sobrepeso");
-                                    } else if (CalImc(peso, altura) >= 30 && CalImc(peso, altura) < 35) {
-                                        printf("Obesidad");
-                                    } else if (CalImc(peso, altura) >= 35 && CalImc(peso, altura) <= 40) {
-                                        printf("Obesidad Marcada");
-                                    } else if (CalImc(peso, altura) > 40) {
-                                        printf("Obesidad Morbida ");
-                                    }
-                                    break;
-                                case 'm':
-                                    if (CalImc(peso, altura) <= 16) {
-                                        printf("Desnutricion");
-                                    } else if (CalImc(peso, altura) > 16 && CalImc(peso, altura) < 20) {
-                                        printf("Bajo peso");
-                                    } else if (CalImc(peso, altura) >= 20 && CalImc(peso, altura) < 24) {
-                                        printf("Normal");
-                                    } else if (CalImc(peso, altura) >= 24 && CalImc(peso, altura) < 29) {
-                                        printf("Sobrepeso");
-                                    } else if (CalImc(peso, altura) >= 29 && CalImc(peso, altura) < 34) {
-                                        printf("Obesidad");
-                                    } else if (CalImc(peso, altura) >= 34 && CalImc(peso, altura) <= 39) {
-                                        printf("Obesidad Marcada");
-                                    } else if (CalImc(peso, altura) > 39) {
-                                        printf("Obesidad Morbida ");
-                                    }
-                                    break;
-                                default:
-                                    printf("Error %s no es valido por favor ingresa de nuevo", genero);
-                                    break;
-                            }
+                        switch (genero) {
+                            case 'h':
+                                if (CalImc(peso, altura) <= 17) {
+                                    printf("Desnutricion");
+                                } else if (CalImc(peso, altura) > 17 && CalImc(peso, altura) < 20) {
+                                    printf("Bajo peso");
+                                } else if (CalImc(peso, altura) >= 20 && CalImc(peso, altura) < 25) {
+                                    printf("Normal");
+                                } else if (CalImc(peso, altura) >= 25 && CalImc(peso, altura) < 30) {
+                                    printf("Sobrepeso");
+                                } else if (CalImc(peso, altura) >= 30 && CalImc(peso, altura) < 35) {
+                                    printf("Obesidad");
+                                } else if (CalImc(peso, altura) >= 35 && CalImc(peso, altura) <= 40) {
+                                    printf("Obesidad Marcada");
+                                } else if (CalImc(peso, altura) > 40) {
+                                    printf("Obesidad Morbida ");
+                                }
+                                break;
+                            case 'm':
+                                if (CalImc(peso, altura) <= 16) {
+                                    printf("Desnutricion");
+                                } else if (CalImc(peso, altura) > 16 && CalImc(peso, altura) < 20) {
+                                    printf("Bajo peso");
+                                } else if (CalImc(peso, altura) >= 20 && CalImc(peso, altura) < 24) {
+                                    printf("Normal");
+                                } else if (CalImc(peso, altura) >= 24 && CalImc(peso, altura) < 29) {
+                                    printf("Sobrepeso");
+                                } else if (CalImc(peso, altura) >= 29 && CalImc(peso, altura) < 34) {
+                                    printf("Obesidad");
+                                } else if (CalImc(peso, altura) >= 34 && CalImc(peso, altura) <= 39) {
+                                    printf("Obesidad Marcada");
+                                } else if (CalImc(peso, altura) > 39) {
+                                    printf("Obesidad Morbida ");
+                                }
+                                break;
+                            default:
+                                printf("Error %s no es valido por favor ingresa de nuevo", genero);
+                                break;
                         }
                     }
-                }else{
-                    printf("Error ese genero no existe");
-                    printf("Recuerde que las opciones son h y m en minuscula");
-                }
-
+                    main();
                     break;
 
                     case 5:
                         printf("\tEjercicio 5 \n");
+                    int sum;
+                    int cont=0;
+                    int dt;
+                    int n1;
+                    int n2;
 
+                    printf("digite el numero inicial del rango!\n");
+                    scanf("%d",&n1);
+                    printf("digite el segundo numero del rango!\n ");
+                    scanf("%d",&n2);
+
+                    printf("digite el numero que no quiere tener en cuenta: \n");
+                    scanf("%d",&dt);
+                    int is=n1;
+
+                    for (int i=n1;i<=n2;i++){
+                        int is=i;
+
+
+                        while (is>=i) {
+                            while (is>0) {
+                                if (is % 10 != dt) {
+                                    sum = sum + is % 10;
+
+                                    is = is / 10;
+
+
+                                } else {
+                                    cont++;
+
+                                    is = is / 10;
+                                }
+                            }
+
+                        }
+
+                    }
+                    printf(" \nRespuesta: ");
+                    printf("\nSuma: %d",sum);
+                    printf("\nnumeros sobrantes: %d",cont);
+                     main();
                     break;
 
                     case 6:
                         printf("\tEjercicio 6\n ");
 
+
+                    long   patron;
+                    int   b1=0;
+                    int b2=1;
+                    int r=1;
+                    int suma=0;
+                    int n;
+                    int rt;
+                    printf("Digite el patron de bits: \n");
+                    scanf("%d",&patron);
+                    printf("digite el numero: \n");
+                    scanf("%i",&n);
+                    printf("\n las veces que esta %d",patron);
+                    printf("  en F(%d",n,")");
+
+                    printf(")");
+                    while(patron>0){
+                        suma=suma+patron%10;
+                        patron=patron/10;
+
+
+                    }
+
+                    for (int i=1;i<n;i++){
+                        b2=b1+r;
+                        b1=r;
+                        r=b2;
+
+                    }
+
+                    if(sum<b2){
+                        rt=b2/suma;
+
+                        printf(" Es: %d \n",rt);
+                    }else{
+                        printf("no se encuentra ningun patron");
+                    }
+                    printf("\nF(%d",n);
+                    printf(")= %d",b2);
+                    main();
                     break;
 
                     case 7:
@@ -268,13 +337,12 @@ int main() {
                         printf("\tEjercicio 7\n ");
                     printf("\nla suma dio! %d \n", prueba());
 
-
+                    main();
                     break;
 
                     case 8:
                         printf("\tPrograma terminado que tenga buen dia \n");
                     continuar = false;
-
 
                     break;
                     default:
@@ -285,8 +353,6 @@ int main() {
 
         }
 
-    
-    }
         return 0;
+    }
 }
-
