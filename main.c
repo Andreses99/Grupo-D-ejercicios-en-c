@@ -168,78 +168,83 @@ int main() {
 
             case 3:
                 printf("\tEjercicio 3 \n");
-
+   
                 printf("Bienvenido al Programa de Numeros Magicos \n");
                 printf("Digite un numero: \n");
                 char number[10];
                 scanf("%s", number);
                 int nb;
                 nb = atoi(number);
-                if (nb == numberMagic(number)) {
-                    printf("El numero %i es un numero magico\n",nb);
+                if(nb>0 && nb <100000){
+                    if (nb == numberMagic(number)) {
+                        printf("El numero %i es un numero magico\n",nb);
+                    }
+                    else {
+                        printf("El numero %i no es un numero magico\n",nb);
+                    }
+                } else{
+                    printf("Caracter introducido es incorrecto");
                 }
-                else {
-                    printf("El numero %i no es un numero magico\n",nb);
-                }
-                main();
                 break;
 
             case 4:
-                printf("\tEjercicio 4 \n");
-                printf("¿Es usted Hombre o Mujer?\n");
+               printf("¿Es usted Hombre o Mujer?\n");
                 printf("Escribe h para hombre y m para mujer\n");
                 char genero;
                 scanf("%s", &genero);
-                printf("Digite su peso?\n");
-                float peso,altura;
-                if (scanf("%f", &peso) != 1) {
-                    printf("solo se puede ingresar numeros");
-                } else {
-                    printf("Digite su altura \n");
-                    if (scanf("%f", &altura) != 1) {
-                        printf("solo se puede ingresar numeros");
+                if( genero =='h' || genero =='m') {
+                    printf("Digite su peso?\n");
+                    float peso, altura;
+                    if (scanf("%f", &peso) != 1) {
+                        printf("solo se puede ingresar numeros ejemplo 53");
+                        continuar = false;
                     } else {
-                        switch (genero) {
-                            case 'h':
-                                if (CalImc(peso, altura) <= 17) {
-                                    printf("Desnutricion");
-                                } else if (CalImc(peso, altura) > 17 && CalImc(peso, altura) < 20) {
-                                    printf("Bajo peso");
-                                } else if (CalImc(peso, altura) >= 20 && CalImc(peso, altura) < 25) {
-                                    printf("Normal");
-                                } else if (CalImc(peso, altura) >= 25 && CalImc(peso, altura) < 30) {
-                                    printf("Sobrepeso");
-                                } else if (CalImc(peso, altura) >= 30 && CalImc(peso, altura) < 35) {
-                                    printf("Obesidad");
-                                } else if (CalImc(peso, altura) >= 35 && CalImc(peso, altura) <= 40) {
-                                    printf("Obesidad Marcada");
-                                } else if (CalImc(peso, altura) > 40) {
-                                    printf("Obesidad Morbida ");
-                                }
-                                break;
-                            case 'm':
-                                if (CalImc(peso, altura) <= 16) {
-                                    printf("Desnutricion");
-                                } else if (CalImc(peso, altura) > 16 && CalImc(peso, altura) < 20) {
-                                    printf("Bajo peso");
-                                } else if (CalImc(peso, altura) >= 20 && CalImc(peso, altura) < 24) {
-                                    printf("Normal");
-                                } else if (CalImc(peso, altura) >= 24 && CalImc(peso, altura) < 29) {
-                                    printf("Sobrepeso");
-                                } else if (CalImc(peso, altura) >= 29 && CalImc(peso, altura) < 34) {
-                                    printf("Obesidad");
-                                } else if (CalImc(peso, altura) >= 34 && CalImc(peso, altura) <= 39) {
-                                    printf("Obesidad Marcada");
-                                } else if (CalImc(peso, altura) > 39) {
-                                    printf("Obesidad Morbida ");
-                                }
-                                break;
-                            default:
-                                printf("Error %s no es valido por favor ingresa de nuevo", genero);
-                                break;
+                        printf("Digite su altura \n");
+                        if (scanf("%f", &altura) != 1) {
+                            printf("solo se puede ingresar numeros ejemplo 1.60");
+                            continuar = false;
+                        } else {
+                            switch (genero) {
+                                case 'h':
+                                    if (CalImc(peso, altura) <= 17) {
+                                        printf("Desnutricion");
+                                    } else if (CalImc(peso, altura) > 17 && CalImc(peso, altura) < 20) {
+                                        printf("Bajo peso");
+                                    } else if (CalImc(peso, altura) >= 20 && CalImc(peso, altura) < 25) {
+                                        printf("Normal");
+                                    } else if (CalImc(peso, altura) >= 25 && CalImc(peso, altura) < 30) {
+                                        printf("Sobrepeso");
+                                    } else if (CalImc(peso, altura) >= 30 && CalImc(peso, altura) < 35) {
+                                        printf("Obesidad");
+                                    } else if (CalImc(peso, altura) >= 35 && CalImc(peso, altura) <= 40) {
+                                        printf("Obesidad Marcada");
+                                    } else if (CalImc(peso, altura) > 40) {
+                                        printf("Obesidad Morbida ");
+                                    }
+                                    break;
+                                case 'm':
+                                    if (CalImc(peso, altura) <= 16) {
+                                        printf("Desnutricion");
+                                    } else if (CalImc(peso, altura) > 16 && CalImc(peso, altura) < 20) {
+                                        printf("Bajo peso");
+                                    } else if (CalImc(peso, altura) >= 20 && CalImc(peso, altura) < 24) {
+                                        printf("Normal");
+                                    } else if (CalImc(peso, altura) >= 24 && CalImc(peso, altura) < 29) {
+                                        printf("Sobrepeso");
+                                    } else if (CalImc(peso, altura) >= 29 && CalImc(peso, altura) < 34) {
+                                        printf("Obesidad");
+                                    } else if (CalImc(peso, altura) >= 34 && CalImc(peso, altura) <= 39) {
+                                        printf("Obesidad Marcada");
+                                    } else if (CalImc(peso, altura) > 39) {
+                                        printf("Obesidad Morbida ");
+                                    }
+                                    break;
+                                default:
+                                    printf("Error %s no es valido por favor ingresa de nuevo", genero);
+                                    break;
+                            }
                         }
                     }
-                    main();
                     break;
 
                     case 5:
