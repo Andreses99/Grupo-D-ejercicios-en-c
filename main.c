@@ -61,10 +61,10 @@ void numPrimos(int num){
 
 }
 
-void numEgolatra(double num) {
+void numEgolatra(int num) {
 
     double sum=0;
-    double tamanho = sizeof(num)-1;
+    int tamanho = sizeof(num)-1;
     char numString [sizeof(num)];
     sprintf(numString, "%d", num);
 
@@ -161,7 +161,7 @@ int main() {
             case 2:
                 printf("\tEjercicio 2 \n");
                 printf("Digite un numero para saber si es egolatra o no \n");
-                double num;
+                int num;
                 scanf("%d", &num);
                 if(num>1){
                 numEgolatra(num);
