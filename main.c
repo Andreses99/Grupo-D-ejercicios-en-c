@@ -153,6 +153,7 @@ int main() {
                     numPrimos(numPrim);
                 } else {
                     printf("Error tiene que elegir un numero mayor a 1\n");
+                    continuar=false;
                 }
                 main();
                 break;
@@ -162,7 +163,13 @@ int main() {
                 printf("Digite un numero para saber si es egolatra o no \n");
                 double num;
                 scanf("%d", &num);
+                if(num>1){
                 numEgolatra(num);
+                }
+                else{
+                printf("Error tiene que elegir un numero mayor a 1\n");
+                   continuar=false;
+                }
                 main();
                 break;
 
