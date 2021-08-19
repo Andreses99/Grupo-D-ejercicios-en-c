@@ -1,2 +1,2 @@
 # Grupo-D-ejercicios-en-c
-c basico
+Ejercicio en c++
